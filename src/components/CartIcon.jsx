@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {FaShoppingCart} from 'react-icons/fa';
+import {FiShoppingCart} from 'react-icons/fi';
 
 
 const CartIcon = () => {
@@ -28,7 +28,7 @@ const CartIcon = () => {
   return (
     <>
     <div className="cart d-inline position-relative">
-      <span ><Link to='/cart' className='text-white text-decoration-none'><FaShoppingCart className='cartColor' size='30px'/></Link></span>
+      <span ><Link to='/cart' className='text-white text-decoration-none'><FiShoppingCart className='cartColor' size='30px'/></Link></span>
       <span className="badeg bg-primary cartBadgeIcon mt-1">{totalQTY}</span>
     </div>
 
