@@ -55,7 +55,7 @@ const Action_buttons = (props) => {
 
      <button onClick={()=>{addItem(item)}} className='btn btn-info text-center'><IoAdd className="action-Btn"/></button>
      <span className="px-3">{item.qty}</span>
-     <button onClick={()=>{removeItem(item)}} className='btn btn-danger me-3'><AiOutlineMinus  className="action-Btn"/></button>
+     <button onClick={()=>{removeItem(item)}} className='btn btn-warning me-3'><AiOutlineMinus  className="action-Btn"/></button>
      <button onClick={()=>{removeProduct(item)}} className="btn btn-danger ml-3"><BiTrash className="action-Btn"/></button>
 
 

@@ -36,9 +36,9 @@ const Cart = () => {
   return (
     <>
      
-     <div className="container py-5">
+     <div className="container my-5 shadow-lg p-3 mb-5 bg-white rounded py-5 ">
 
-          <h2 className='cartItems my-3 pt-5'> Shopping Cart</h2>
+          <h2 className='cartItems my-3 text-center pt-5'> Shopping Cart</h2>
           {items.length === 0?<h5 className='text-center h2'>Cart is empty</h5>:''}
           {items && items.map((item,index)=>(
                       <div  key={index} className='row py-3'>
@@ -56,9 +56,9 @@ const Cart = () => {
                   </div>
           ))}
           <div className="row mt-5">
-            <div className="offset-md-8 col-md-3 mt-5 position-relative">
-            <p className="text-white text-center mainColor">Total:{totalPrice} EGP</p>
-            <Link to='/order' className="btn btn-success position-absolute end-0 mx-2 w-25">Next</Link>
+              <div className="offset-md-8 col-md-3 mt-5">
+              <p className="text-white text-center btn btn-primary  w-75">Total:{totalPrice} EGP</p>
+              <Link to='/order' className="btn btn-success w-75">Checkout</Link>
             </div>
             </div>
       </div>  
