@@ -30,6 +30,7 @@ const Product = () => {
                                     <img className='w-100' src={`${sorcImag}${item.photos[0]}`} alt="" />
                                     <div className="cart-Title mt-2">
                                     <h6>{item.product_name}</h6>
+                                    <h6>{item.number_of_items<3?`Only ${item.number_of_items} left in stock`:item.number_of_items}</h6>
                                     <span>{item.price} EGP</span>
                                     <h6>Store : {item.created_by.user_name}</h6>
                                     </div>
