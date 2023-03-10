@@ -108,20 +108,24 @@ const Order = () => {
       form.order_address.building_num = +form.order_address.building_num;
       setFormErrors(validate(form))
       console.log(form);
-      if(form.payment_method === "Cash"){
-        axios.post('http://localhost:3000/api/v1/order/create', form,{headers:{
-          'authorization':`Bearer ${token}`
-          }}).then((res) => {
-            console.log(res);
-            alert("Done Creat Your Order");
-            clearCart();
-            navigate('/');
-          }).catch((err) => {
-            console.log(err.response.data.message)
-        });
-      }else{
-         alert("Visssssa")
+      const cofrimOrder = window.confirm("Cofrim Order");
+      if (cofrimOrder === true) {
+        if(form.payment_method === "Cash"){
+          axios.post('http://localhost:3000/api/v1/order/create', form,{headers:{
+            'authorization':`Bearer ${token}`
+            }}).then((res) => {
+              console.log(res);
+              alert("Sucess Creat Your Order");
+              clearCart();
+              navigate('/');
+            }).catch((err) => {
+              console.log(err.response.data.message)
+          });
+        }else{
+           alert("Visssssa")
+        }
       }
+
   };
 
     
