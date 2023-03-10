@@ -95,18 +95,21 @@ const Order = () => {
   // const token = localStorage.getItem('user-token');
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDYwZDY1NTMyNGI0MjFmYjEzZjYwMSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY3ODM5NTI1NCwiZXhwIjoxNjc4NDgxNjU0fQ.tRjCgzftPlJU96-Hw8J1kQCbDqXCQC85Ocygrilf4Ow";
 
-   
+  const navigate= useNavigate();
+
   const onSubmitForm = e => {
       e.preventDefault();
       getDataForm();
       form.order_address.building_num = +form.order_address.building_num;
       setFormErrors(validate(form))
       console.log(form);
-      if(form.payment_method == "Cash"){
+      if(form.payment_method === "Cash"){
         axios.post('http://localhost:3000/api/v1/order/create', form,{headers:{
           'authorization':`Bearer ${token}`
           }}).then((res) => {
             console.log(res);
+            alert("Done Creat Your Order");
+            navigate('/')
           }).catch((err) => {
             console.log(err.response.data.message)
         });

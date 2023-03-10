@@ -10,7 +10,6 @@ const Product = () => {
   function displayData(){
 
        axios.get("http://localhost:3000/api/v1/product").then((res)=>{
-          console.log(res);
           let {data} = res;
           productsState(data);
        }).catch((err)=>{
