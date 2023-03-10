@@ -91,6 +91,11 @@ const Order = () => {
        form.products.push(product);
      }
   }
+  const clearCart = ()=>{
+    localStorage.setItem('data-cart',JSON.stringify([]));
+    itemsState([]);
+    window.dispatchEvent(new Event('storage'));
+  }
 
   // const token = localStorage.getItem('user-token');
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDYwZDY1NTMyNGI0MjFmYjEzZjYwMSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY3ODM5NTI1NCwiZXhwIjoxNjc4NDgxNjU0fQ.tRjCgzftPlJU96-Hw8J1kQCbDqXCQC85Ocygrilf4Ow";
@@ -109,7 +114,8 @@ const Order = () => {
           }}).then((res) => {
             console.log(res);
             alert("Done Creat Your Order");
-            navigate('/')
+            clearCart();
+            navigate('/');
           }).catch((err) => {
             console.log(err.response.data.message)
         });

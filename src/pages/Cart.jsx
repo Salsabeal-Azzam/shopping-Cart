@@ -32,7 +32,11 @@ const Cart = () => {
       getData();
     });
 
-    
+    const clearCart = ()=>{
+      localStorage.setItem('data-cart',JSON.stringify([]));
+      itemsState([]);
+      window.dispatchEvent(new Event('storage'));
+    }
   return (
     <>
      
@@ -58,6 +62,7 @@ const Cart = () => {
           <div className="row mt-5">
               <div className="offset-md-8 col-md-3 mt-5">
               <p className="text-white text-center btn btn-primary  w-75">Total:{totalPrice} EGP</p>
+              <button className="btn btn-warning w-75 mb-2" onClick={()=>clearCart()}>Clear All</button>
               <Link to='/order' className="btn btn-success w-75">Checkout</Link>
             </div>
             </div>
