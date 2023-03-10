@@ -78,7 +78,7 @@ const Wishlist = () => {
           ))}
           <div className="row">
           <div className="offset-md-8 col-md-3 mt-5">
-              <Link to='/order' className="btn btn-info w-75">Back to store</Link>
+              <Link to='/' className="btn btn-info w-75">Back to store</Link>
             </div>
           </div>
       </div>  
