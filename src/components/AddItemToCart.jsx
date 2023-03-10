@@ -12,6 +12,9 @@ const AddItemToCart = (props) => {
     };
 
     const addItem = (item)=>{
+      if (props.removeProduct) {
+       props.removeProduct(item)
+      }
       
       let dataLocal = JSON.parse(localStorage.getItem('data-cart'));
       if (dataLocal != null && dataLocal.length > 0){

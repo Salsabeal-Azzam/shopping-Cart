@@ -68,7 +68,7 @@ const Wishlist = () => {
                            <h6>{item.product_name}</h6>
                            <p className='price'>{item.price}EL</p>
                            <div className=" d-flex align-items-center">
-                           <AddItemToCart item={item}/>
+                           <AddItemToCart removeProduct={removeProduct} item={item}/>
                            <button onClick={()=>{removeProduct(item)}} className="btn btn-danger ms-3"><BiTrash/></button>
                            </div>
                         </div>
@@ -76,6 +76,11 @@ const Wishlist = () => {
                       </div>
                   </div>
           ))}
+          <div className="row">
+          <div className="offset-md-8 col-md-3 mt-5">
+              <Link to='/order' className="btn btn-info w-75">Back to store</Link>
+            </div>
+          </div>
       </div>  
     
     </>
