@@ -54,22 +54,23 @@ const Order = () => {
   const UpdateAddress = e => {
       form.order_address.building_num = +form.order_address.building_num;
       const {name,value} = e.target;
+      if (formErrors) {
+        var faildError  = formErrors;
 
-      let faildError  = formErrors;
-
+      }
       if (name === 'city') {
         setcityErrors(null)
-        faildError.city = null;
+        faildError.order_address.city = null;
         setFormErrors(faildError)
       }
       if (name === 'street') {
         setStreetErrors(null)
-        faildError.street = null;
+        faildError.order_address.street = null;
         setFormErrors(faildError);
       }
       if (name === 'building_num') {
         setBulidingNumErrors(null);
-        faildError.building_num = null;
+        faildError.order_address.building_num = null;
         setFormErrors(faildError);
 
       }
@@ -129,19 +130,26 @@ const Order = () => {
 
 
   const validate = (val) => {
-      const errors = {};
+      const errors = {
+        order_address:{
+            city:"",
+            street:"",
+            building_num:""
+  
+        }
+      };
       if (!val.payment_method) {
           errors.payment_method = "payment_method is required"
       }
 
       if (!val.order_address?.city) {
-        errors.city = "city is required"
+        errors.order_address.city = "city is required"
        }
     if (!val.order_address?.street) {
-        errors.street = "street is required"
+        errors.order_address.street = "street is required"
     }
     if (!val.order_address?.building_num) {
-        errors.building_num = "building_num is required"
+        errors.order_address.building_num = "building_num is required"
     }
       if (!val.phone) {
         errors.phone = "phone is required"
@@ -181,10 +189,15 @@ const Order = () => {
       let errorB = 0;
       for (const key in errorBella) {
         console.log(`${key} : ${errorBella[key]}`);
-        if (errorBella[key]) {
+        if (key == 'order_address') {
+            for (const item in key) {
+                    if (key[item]) {
+                        errorB++;
+                    }
+            }
+        }else if (errorBella[key]) {
             errorB++;
         }
-
       }
 
       if (errorB){
@@ -237,7 +250,7 @@ const Order = () => {
                                 <label className='my-2' htmlFor="city">City</label>
                                 <input type="text" name="city" className="form-control" id="city" placeholder="city" value={form.order_address.city} onChange={UpdateAddress} onBlur={checkAdreess}/>
                                    <div className=" text-danger">
-                                        {cityErrors || formErrors.city}
+                                        {cityErrors || formErrors.order_address?.city}
                                    </div>
                             </div>
                         </div>
@@ -245,7 +258,7 @@ const Order = () => {
                             <label className='my-2' htmlFor="street">street</label>
                             <input type="text" name="street" className="form-control" id="street" placeholder="street" value={form.order_address.street} onChange={UpdateAddress} onBlur={checkAdreess}/>
                                <div className=" text-danger">
-                                        {streetErrors || formErrors.street}
+                                        {streetErrors || formErrors.order_address?.street}
                                 </div>
                         </div>
                         <div className="row mb-4">
@@ -254,7 +267,7 @@ const Order = () => {
                                 <label className='my-2' htmlFor="building_num">Building_num</label>
                                 <input type="number" className="form-control" name="building_num" id="building_num" placeholder="building_num" value={form.order_address.building_num} onChange={UpdateAddress} onBlur={checkAdreess} />
                                 <div className=" text-danger">
-                                        {bulidingNumErrors || formErrors.building_num}
+                                        {bulidingNumErrors || formErrors.order_address?.building_num}
                                 </div>
                             </div>
                         </div>

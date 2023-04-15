@@ -6,6 +6,7 @@ import Navbar from './pages/Navbar';
 import Order from './pages/Order';
 import Product from './pages/Product';
 import Wishlist from './pages/Wishlist';
+import OrderTest  from './pages/OrderTest';
 
 
 function App ()
@@ -76,6 +77,7 @@ function App ()
         <Route path='/cart' element={<Cart/>} ></Route>
         <Route path='/order' element={<Order/>} ></Route>
         <Route path='/wishlist' element={<Wishlist/>}></Route>
+        <Route path='/orderTest' element={<OrderTest/>}></Route>
        </Routes>
       </BrowserRouter>
     </>

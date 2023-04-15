@@ -1,3 +1,4 @@
+import CryptoJS from 'crypto-js';
 
 const AddItemToCart = (props) => {
 
@@ -5,6 +6,12 @@ const AddItemToCart = (props) => {
     let items = [];
 
 
+    const SECRET_KEY = 'mysecretkey'; 
+
+    const encryptData =(name,data)=> {
+      const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), SECRET_KEY).toString();
+      localStorage.setItem(name, encrypted);
+    }
 
     const addToLocalStorage =(data)=>{
     localStorage.setItem("data-cart",JSON.stringify(data));

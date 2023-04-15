@@ -47,11 +47,11 @@ const Cart = () => {
           {items && items.map((item,index)=>(
                       <div  key={index} className='row py-3'>
                          <div className="col-md-3">
-                             <img className='w-100' src={`${sorcImag}${item.photos[0]}`} alt=""/>
+                             <img className='w-100' src={item.image} alt=""/>
                          </div>
                        <div className="col-md-6 offset-md-1 d-flex align-items-center">
                         <div className="">
-                           <h6>{item.product_name}</h6>
+                           <h6>{item.title}</h6>
                            <p className='price'>{item.price}EL</p>
                            <Action_buttons item={item}/>
                         </div>
