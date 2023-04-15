@@ -30,8 +30,8 @@ const Product = () => {
                                 <div className="item text-center mb-2 pb-2 itemCoun">
                                     <img className='w-100 imageItem' src={item.image} alt="" />
                                     <div className="cart-Title mt-2">
-                                    <h6 className='tile-product my-1'>{item.title}</h6>
-                                    <h6 className='descrip bg-primary mt-2'>{item.description}</h6>
+                                    <h6 className='tile-product my-1 mainColorText'>{item.title}</h6>
+                                    <h6 className='descrip mt-2'>{item.description}</h6>
                                     {/* <h6>{item.number_of_items<3?`Only ${item.number_of_items} left in stock`:item.number_of_items}</h6> */}
                                     <span>{item.price} EGP</span>
                                     <h6>category : {item.category}</h6>
